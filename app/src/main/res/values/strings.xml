@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Warewolf</string>
+    <string name="player_num">Number of Players</string>
+    <string name="enter_player_num">Enter a number of players</string>
+    <string name="showRole">Reveal the role upon death in the game.</string>
+    <string name="noshowRole">Hide the role upon death in the game.</string>
+    <string name="startBotton">Start!</string>
 </resources>
