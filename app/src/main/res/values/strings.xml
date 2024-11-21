@@ -5,4 +5,16 @@
     <string name="showRole">Reveal the role upon death in the game.</string>
     <string name="noshowRole">Hide the role upon death in the game.</string>
     <string name="startBotton">START</string>
+    <string name="role_villager">Villager</string>
+    <string name="role_werewolf">Werewolf</string>
+    <string name="role_seer">Seer</string>
+    <string name="role">Your role is:</string>
+    <string name="players_name">Player name:</string>
+    <string name="input_name">e.g. mighty</string>
+    <string name="next_btn">next</string>
+    <string name="kill">Killed Player</string>
+    <string name="default_img">default img</string>
+    <string name="werewolf_img">werewolf img</string>
+    <string name="seer_img">seer img</string>
+    <string name="villager_img">villager img</string>
 </resources>
