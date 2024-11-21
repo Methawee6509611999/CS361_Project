@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_vertical"
-    android:background="@color/black">
+    android:background="@color/black"
+    android:id="@+id/linearLayout">
 
 
     <ImageView
