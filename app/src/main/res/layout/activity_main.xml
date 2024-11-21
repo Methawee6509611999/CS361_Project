@@ -57,13 +57,14 @@
         android:text="@string/noshowRole" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/startBotton"
         android:textSize="@dimen/normal_size"
         android:textStyle="bold"
         android:layout_gravity="center"
+        android:padding="15dp"
         android:layout_marginTop="30dp"/>
 
 </LinearLayout>
