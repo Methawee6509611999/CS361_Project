@@ -15,6 +15,7 @@
         android:layout_marginTop="125dp"
         android:layout_marginBottom="10dp"
         android:textSize="@dimen/normal_size"
+        android:textColor="?android:textColorPrimary"
         android:text="@string/kill" />
 
     <TextView
@@ -23,6 +24,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="@dimen/normal_size"
+        android:textColor="?android:textColorPrimary"
         android:text="@string/input_name" />
 
     <ImageView
@@ -45,6 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/normal_size"
+            android:textColor="?android:textColorPrimary"
             android:text="@string/role_villager" />
     </LinearLayout>
 

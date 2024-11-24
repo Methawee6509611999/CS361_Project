@@ -14,6 +14,8 @@
             android:id="@+id/skipButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="?colorOnPrimary"
+            android:background="?colorPrimary"
             android:text="@string/skip" />
 
         <ProgressBar
