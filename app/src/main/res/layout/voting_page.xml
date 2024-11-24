@@ -11,10 +11,10 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/skipButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="@string/skip" />
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -56,7 +56,7 @@
                         android:id="@+id/textViewP1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="HI" />
+                        />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -84,7 +84,7 @@
                         android:id="@+id/textViewP2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                         />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>

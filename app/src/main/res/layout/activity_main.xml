@@ -28,16 +28,17 @@
             android:text="@string/player_num" />
 
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/playerCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="number"
             android:gravity="center"
             android:textSize="@dimen/normal_size"
             android:textColor="@color/gray"
-            android:text="@string/enter_player_num" />
+            android:hint="@string/enter_player_num"
+            />
     </LinearLayout>
 
     <CheckBox
@@ -47,6 +48,8 @@
         android:textSize="@dimen/normal_size"
         android:layout_marginLeft="20dp"
         android:text="@string/showRole" />
+
+
 
     <CheckBox
         android:id="@+id/checkBox3"

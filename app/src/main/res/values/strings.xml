@@ -17,4 +17,5 @@
     <string name="werewolf_img">werewolf img</string>
     <string name="seer_img">seer img</string>
     <string name="villager_img">villager img</string>
+    <string name="skip">skip</string>
 </resources>

@@ -44,7 +44,7 @@ public class DayCount extends AppCompatActivity {
 
         // ตั้งเวลา animation
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(DayCount.this, MainActivity.class);
+            Intent intent = new Intent(DayCount.this, SetupActivity.class);
             startActivity(intent);
             finish(); // ปิด Activity ปัจจุบัน
         }, 3000); // 4000ms (3 วิ)
