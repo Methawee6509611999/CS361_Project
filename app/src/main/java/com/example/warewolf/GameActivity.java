@@ -1,7 +1,9 @@
 package com.example.warewolf;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -13,6 +15,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class GameActivity extends AppCompatActivity {
+
+    private ProgressBar progressBar = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -59,6 +63,34 @@ public class GameActivity extends AppCompatActivity {
             Log.e("PlayState", "No players received from Intent!");
         }
 
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setProgress(0);
 
+
+
+    }
+
+    private final Handler handler = new Handler();
+    protected void setTimer(String timeType) {
+
+        final int delay = 1000;
+        final int[] counter = {1};
+
+        handler.postDelayed(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        int progress = counter[0] * 20;
+                        progressBar.setProgress(progress);
+
+                        if(progress == 100) {
+
+                        }
+
+                        counter[0]++;
+                        handler.postDelayed(this, delay);
+                    }
+                }, delay
+        );
     }
 }
