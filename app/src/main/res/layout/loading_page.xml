@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_vertical"
-    android:background="@color/black"
+    android:background="@color/color_background"
     android:id="@+id/linearLayout">
 
 
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/app_name"
-        android:textColor="@color/white"
+        android:textColor="?android:textColorPrimary"
         android:textSize="@dimen/large_size"
         android:textStyle="bold" />
 </LinearLayout>
