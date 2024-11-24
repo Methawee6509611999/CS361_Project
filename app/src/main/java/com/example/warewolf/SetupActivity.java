@@ -103,7 +103,7 @@ public class SetupActivity extends AppCompatActivity implements SensorEventListe
                 playerRoleImage.setImageResource(R.drawable.werewolf_img); // Replace with your actual drawable
                 break;
             case "Seer":
-                playerRoleImage.setImageResource(R.drawable.werewolf_img); // Replace with your actual drawable
+                playerRoleImage.setImageResource(R.drawable.seer_img); // Replace with your actual drawable
                 break;
             case "Villager":
                 playerRoleImage.setImageResource(R.drawable.villager_img); // Replace with your actual drawable
@@ -139,14 +139,13 @@ public class SetupActivity extends AppCompatActivity implements SensorEventListe
                     inputName.setText(""); // Clear input for the next player
                 } else {
                     // All players set up, start the game
-                    Intent intent = new Intent(SetupActivity.this, MainActivity.class);
-                    intent.putExtra("players", players);
+                    Intent intent = new Intent(SetupActivity.this, GameActivity.class);
+                    intent.putParcelableArrayListExtra("players", players);
                     startActivity(intent);
                 }
             }
         }
     }
-
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
         // No action needed
