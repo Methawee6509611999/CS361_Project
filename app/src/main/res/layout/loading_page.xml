@@ -15,7 +15,8 @@
         android:layout_width="322dp"
         android:layout_height="375dp"
         android:layout_gravity="center"
-        tools:srcCompat="@drawable/logo_werewolf" />
+        android:src="@drawable/logo_werewolf"
+        />
 
     <TextView
         android:id="@+id/textView2"
