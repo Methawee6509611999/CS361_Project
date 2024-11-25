@@ -117,7 +117,7 @@ public class GameActivity extends AppCompatActivity {
                 voteCount++;
                 skipButton.setText("skip(" + skipped[0] + ')');
             });
-            if (skipped[0]>playState.size()){
+            if (skipped[0]>playState.size()/2){
                 Intent intent = new Intent(GameActivity.this, DeathActivity.class);
                 intent.putExtra("time","day");
                 intent.putExtra("votedName","none");
