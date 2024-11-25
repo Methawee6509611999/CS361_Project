@@ -48,7 +48,7 @@ public class SetupActivity extends AppCompatActivity implements SensorEventListe
 
         // UI Elements
         Button nextButton = findViewById(R.id.next_btn);
-        inputName = findViewById(R.id.deathName);
+        inputName = findViewById(R.id.input_name);
         roleText = findViewById(R.id.role);
         playerRoleImage = findViewById(R.id.playerRole);
 
