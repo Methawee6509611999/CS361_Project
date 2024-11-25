@@ -16,7 +16,7 @@ import java.util.List;
 
 public class GameActivity extends AppCompatActivity {
 
-    private ProgressBar progressBar = null;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -65,6 +65,9 @@ public class GameActivity extends AppCompatActivity {
 
         progressBar = findViewById(R.id.progressBar);
         progressBar.setProgress(0);
+        progressBar.setMax(100); // เพิ่มการตั้งค่า max
+
+        setTimer("ExampleTimeType"); // เรียกใช้ setTimer
 
 
 
@@ -72,9 +75,8 @@ public class GameActivity extends AppCompatActivity {
 
     private final Handler handler = new Handler();
     protected void setTimer(String timeType) {
-
-        final int delay = 1000;
-        final int[] counter = {1};
+        final int delay = 1000; // 1000ms หรือ 1 วินาที
+        final int[] counter = {1}; // ตัวแปรสำหรับการนับเวลาจาก 1
 
         handler.postDelayed(
                 new Runnable() {
@@ -84,7 +86,7 @@ public class GameActivity extends AppCompatActivity {
                         progressBar.setProgress(progress);
 
                         if(progress == 100) {
-
+                            handler.removeCallbacks(this); // หยุดการเรียก Runnable
                         }
 
                         counter[0]++;
