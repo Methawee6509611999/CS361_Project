@@ -1,8 +1,10 @@
 package com.example.warewolf;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -22,46 +24,133 @@ public class GameActivity extends AppCompatActivity {
     private int maxTime = 0;
     private boolean isPaused = false;
 
+    // Class-level variables
+    private int[] skipped = {0};
+    private int[] voted;
+    private int voteCount = 0;
+    private List<CardView> cardViews; // Store CardViews if you need to reference them dynamically
+    private ArrayList<Player> playState; // List of players for reference
+    private String time;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.voting_page);
 
-        //UI get
-        CardView cardP1 = findViewById(R.id.p1);
-        CardView cardP2 = findViewById(R.id.p2);
-        CardView cardP3 = findViewById(R.id.p3);
-        CardView cardP4 = findViewById(R.id.p4);
-        CardView cardP5 = findViewById(R.id.p5);
-        CardView cardP6 = findViewById(R.id.p6);
-        CardView cardP7 = findViewById(R.id.p7);
-        CardView cardP8 = findViewById(R.id.p8);
-        CardView cardP9 = findViewById(R.id.p9);
+        // UI references
+        Button skipButton = findViewById(R.id.skipButton);
 
-        TextView textP1 = findViewById(R.id.textViewP1);
-        TextView textP2 = findViewById(R.id.textViewP2);
-        TextView textP3 = findViewById(R.id.textViewP3);
-        TextView textP4 = findViewById(R.id.textViewP4);
-        TextView textP5 = findViewById(R.id.textViewP5);
-        TextView textP6 = findViewById(R.id.textViewP6);
-        TextView textP7 = findViewById(R.id.textViewP7);
-        TextView textP8 = findViewById(R.id.textViewP8);
-        TextView textP9 = findViewById(R.id.textViewP9);
-
-        ArrayList<Player> PlayState = getIntent().getParcelableArrayListExtra("players");
-
-        // List of TextViews for the player names
-        List<TextView> textViews = Arrays.asList(
-                textP1, textP2, textP3, textP4, textP5, textP6, textP7, textP8, textP9
+        // Initialize CardViews and player list
+        cardViews = Arrays.asList(
+                findViewById(R.id.p1), findViewById(R.id.p2), findViewById(R.id.p3),
+                findViewById(R.id.p4), findViewById(R.id.p5), findViewById(R.id.p6),
+                findViewById(R.id.p7), findViewById(R.id.p8), findViewById(R.id.p9)
         );
 
-        // Check if PlayState is not null
-        if (PlayState != null) {
-            for (int i = 0; i < PlayState.size() && i < textViews.size(); i++) {
-                Player player = PlayState.get(i); // Get the player from the list
-                TextView textView = textViews.get(i); // Get the corresponding TextView
-                textView.setText(player.getName()); // Set the player's name
+        playState = getIntent().getParcelableArrayListExtra("players");
+        time = getIntent().getStringExtra("time");
+
+        // Initialize vote tracking
+        voted = new int[cardViews.size()];
+        assert time != null;
+
+        //set name on page
+        for (int i = 0; i < playState.size(); i++) {
+            Player player = playState.get(i);
+            TextView playerTextView = findViewById(getResources().getIdentifier(
+                    "textViewP" + (i + 1), "id", getPackageName())
+            );
+            playerTextView.setText(player.getName());
+        }
+
+        if(time.equals("night")){
+
+            // Set up skip button listener
+            skipButton.setOnClickListener(v -> {
+                skipped[0]++;
+                voteCount++;
+                skipButton.setText("skip(" + skipped[0] + ')');
+            });
+            if (skipped[0]>playState.size()){
+                Intent intent = new Intent(GameActivity.this, DeathActivity.class);
+                intent.putExtra("time","day");
+                intent.putExtra("votedName","none");
+                startActivity(intent);
+            }
+            // Set up click listeners for the cards
+            for (int i = 0; i < playState.size(); i++) {
+                int index = i; // Capture the current index
+                CardView cardView = cardViews.get(i);
+
+                cardView.setOnClickListener(v -> {
+                    voted[index]++;
+                    voteCount++;
+
+                    Log.d("Voting", playState.get(index).getName() + " has been voted " + voted[index] + " times!");
+
+
+                    // Check if all players have voted
+                    if (hasEveryoneVoted()) {
+                        Player mostVotedPlayer = getMostVotedPlayer();
+                        if (mostVotedPlayer != null) {
+
+                            mostVotedPlayer.Die();
+                            Log.d("Result", "Most voted player is: " + mostVotedPlayer.getName());
+                        }
+                        Intent intent = new Intent(GameActivity.this, DeathActivity.class);
+                        intent.putExtra("time","day");
+                        intent.putExtra("votedName",mostVotedPlayer.getName());
+                        intent.putExtra("votedRole",mostVotedPlayer.getRole());
+                        startActivity(intent);
+                    }
+                });
+            }
+
+
+        }
+        else if (playState != null && time.equals("day")) {
+
+            // Set up skip button listener
+            skipButton.setOnClickListener(v -> {
+                skipped[0]++;
+                voteCount++;
+                skipButton.setText("skip(" + skipped[0] + ')');
+            });
+            if (skipped[0]>playState.size()){
+                Intent intent = new Intent(GameActivity.this, DeathActivity.class);
+                intent.putExtra("time","day");
+                intent.putExtra("votedName","none");
+                startActivity(intent);
+            }
+
+            // Set up click listeners for the cards
+            for (int i = 0; i < playState.size(); i++) {
+                int index = i; // Capture the current index
+                CardView cardView = cardViews.get(i);
+
+                cardView.setOnClickListener(v -> {
+                    voted[index]++;
+                    voteCount++;
+
+                    Log.d("Voting", playState.get(index).getName() + " has been voted " + voted[index] + " times!");
+
+
+                    // Check if all players have voted
+                    if (hasEveryoneVoted()) {
+                        Player mostVotedPlayer = getMostVotedPlayer();
+                        if (mostVotedPlayer != null) {
+
+                            mostVotedPlayer.Die();
+                            Log.d("Result", "Most voted player is: " + mostVotedPlayer.getName());
+                        }
+                        Intent intent = new Intent(GameActivity.this, DeathActivity.class);
+                        intent.putExtra("time","day");
+                        intent.putExtra("votedName",mostVotedPlayer.getName());
+                        intent.putExtra("votedRole",mostVotedPlayer.getRole());
+                        startActivity(intent);
+                    }
+                });
             }
         } else {
             Log.e("PlayState", "No players received from Intent!");
@@ -72,17 +161,41 @@ public class GameActivity extends AppCompatActivity {
         progressBar.setMax(100);
 
         setTimer("seer");
+    }
 
+    private boolean hasEveryoneVoted() {
+        return voteCount == playState.size();
+    }
 
+    /**
+     * Determine the most voted player.
+     *
+     * @return The Player with the most votes, or null if no votes.
+     */
+    private Player getMostVotedPlayer() {
+        int maxVotes = 0;
+        int maxIndex = -1;
+
+        for (int i = 0; i < voted.length; i++) {
+            if (voted[i] > maxVotes) {
+                maxVotes = voted[i];
+                maxIndex = i;
+            }
+        }
+        if (maxIndex != -1) {
+            return playState.get(maxIndex); // Return the most voted player
+        } else {
+            return null; // No votes yet
+        }
     }
 
     // set timer
     protected void setTimer(String timeType) {
 
         // ตั้งค่า maxTime ตาม timeType
-        if (timeType.equals("villager")) {
+        if (timeType.equals("day")) {
             maxTime = 3 * 60; // 3 นาที
-        } else if (timeType.equals("wolf")) {
+        } else if (timeType.equals("night")) {
             maxTime = 1 * 60; // 1 นาที
         } else if (timeType.equals("seer")) {
             maxTime = 30; // 30 วินาที

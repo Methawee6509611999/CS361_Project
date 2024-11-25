@@ -48,7 +48,7 @@ public class SetupActivity extends AppCompatActivity implements SensorEventListe
 
         // UI Elements
         Button nextButton = findViewById(R.id.next_btn);
-        inputName = findViewById(R.id.input_name);
+        inputName = findViewById(R.id.deathName);
         roleText = findViewById(R.id.role);
         playerRoleImage = findViewById(R.id.playerRole);
 
@@ -67,7 +67,7 @@ public class SetupActivity extends AppCompatActivity implements SensorEventListe
         nextButton.setOnClickListener(v -> {
             // Change image to question mark
             playerRoleImage.setImageResource(R.drawable.questionmark_img);
-
+            roleText.setText("?");
             // Start listening for orientation changes
             isFacingDown = false; // Reset states
             isFacingUp = false;
@@ -141,6 +141,7 @@ public class SetupActivity extends AppCompatActivity implements SensorEventListe
                     // All players set up, start the game
                     Intent intent = new Intent(SetupActivity.this, GameActivity.class);
                     intent.putParcelableArrayListExtra("players", players);
+                    intent.putExtra("time","day");
                     startActivity(intent);
                 }
             }

@@ -48,6 +48,8 @@ public class Player implements Parcelable{
         }
     };
 
+    public void Die() {isAlive = false;}
+
     public String getName() {
         return name;
     }
