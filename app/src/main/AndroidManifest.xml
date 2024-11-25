@@ -47,9 +47,6 @@
             android:exported="true">
         </activity>
 
-
-
-
     </application>
 
 </manifest>

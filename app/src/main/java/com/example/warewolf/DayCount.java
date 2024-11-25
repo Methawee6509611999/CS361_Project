@@ -7,20 +7,25 @@ import android.os.Handler;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.MediaController;
-import android.widget.VideoView;
+import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.bumptech.glide.Glide;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowCompat;
 
 public class DayCount extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false); // เปิดใช้งาน Edge-to-Edge UI
         setContentView(R.layout.noon_page);
 
         // กำหนด View Insets
@@ -30,17 +35,12 @@ public class DayCount extends AppCompatActivity {
             return insets;
         });
 
-        // กำหนด VideoView
-        VideoView sunVideoView = findViewById(R.id.sunlight);
-        sunVideoView.setVideoURI(Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.sun_light));
-        sunVideoView.setMediaController(new MediaController(this));
-        sunVideoView.requestFocus();
-
-        // สั่งให้ Video เล่นอัตโนมัติ
-        sunVideoView.start();
-
-        // เพิ่ม animation
-        animateVideoView(sunVideoView);
+        ImageView imageViewGif = findViewById(R.id.sunlight);
+        // โหลด GIF ด้วย Glide
+        Glide.with(this)
+                .asGif()
+                .load(R.raw.sun_light)
+                .into(imageViewGif);
 
         // ตั้งเวลา animation
         new Handler().postDelayed(() -> {
@@ -50,17 +50,6 @@ public class DayCount extends AppCompatActivity {
         }, 3000); // 4000ms (3 วิ)
     }
 
-    private void animateVideoView(VideoView videoView) {
-        // สร้าง Animation (เคลื่อนที่ขึ้นลง)
-        TranslateAnimation animation = new TranslateAnimation(
-                0, 0,          // จาก X -> X (ไม่เปลี่ยนตำแหน่ง X)
-                -100, 100      // จาก Y -> Y (เคลื่อนที่ขึ้นและลง)
-        );
-        animation.setDuration(2000); // ระยะเวลา 2 วินาที
-        animation.setRepeatCount(1); // เล่น 1 รอบ
-        animation.setRepeatMode(Animation.REVERSE); // เล่นกลับด้าน
-        videoView.startAnimation(animation); // เริ่มแอนิเมชัน
-    }
 }
 
 
