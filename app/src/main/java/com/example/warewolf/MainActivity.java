@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Please enter a valid number.", Toast.LENGTH_SHORT).show();
         }
 
-
         start_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
