@@ -16,6 +16,7 @@ import java.util.List;
 
 public class GameActivity extends AppCompatActivity {
 
+    private final Handler handler = new Handler();
     private ProgressBar progressBar;
 
     @Override
@@ -67,32 +68,46 @@ public class GameActivity extends AppCompatActivity {
         progressBar.setProgress(0);
         progressBar.setMax(100); // เพิ่มการตั้งค่า max
 
-        setTimer("ExampleTimeType"); // เรียกใช้ setTimer
-
+        setTimer("seer"); // เรียกใช้ setTimer
 
 
     }
 
-    private final Handler handler = new Handler();
+    // set timer
     protected void setTimer(String timeType) {
         final int delay = 1000; // 1000ms หรือ 1 วินาที
-        final int[] counter = {1}; // ตัวแปรสำหรับการนับเวลาจาก 1
+        final int[] counter = {0}; // ตัวแปรสำหรับการนับเวลา
+        final int maxTime; // เวลาเต็มตามเงื่อนไข (วินาที)
+
+        // ตั้งค่า maxTime ตาม timeType
+        if (timeType.equals("villager")) {
+            maxTime = 3 * 60; // 3 นาที
+        } else if (timeType.equals("wolf")) {
+            maxTime = 1 * 60; // 1 นาที
+        } else if (timeType.equals("seer")) {
+            maxTime = 30; // 30 วินาที
+        } else {
+            Log.e("setTimer", "Unknown timeType: " + timeType);
+            return; // ถ้า timeType ไม่ถูกต้อง ออกจากฟังก์ชัน
+        }
 
         handler.postDelayed(
                 new Runnable() {
                     @Override
                     public void run() {
-                        int progress = counter[0] * 20;
-                        progressBar.setProgress(progress);
+                        int progress = (int) (((double) counter[0] / maxTime) * 100);
+                        progressBar.setProgress(progress); // ตั้งค่า progressBar
 
-                        if(progress == 100) {
+                        if (counter[0] >= maxTime) { // ถ้าครบเวลา
                             handler.removeCallbacks(this); // หยุดการเรียก Runnable
+                        } else {
+                            counter[0]++; // เพิ่มเวลา
+                            handler.postDelayed(this, delay); // เรียกใหม่หลังจาก delay
                         }
-
-                        counter[0]++;
-                        handler.postDelayed(this, delay);
                     }
-                }, delay
+                },
+                delay
         );
     }
+
 }
