@@ -18,6 +18,9 @@ public class GameActivity extends AppCompatActivity {
 
     private final Handler handler = new Handler();
     private ProgressBar progressBar;
+    private int elapsedTime = 0; // เก็บเวลาที่ผ่านไป
+    private int maxTime = 0;
+    private boolean isPaused = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -66,18 +69,15 @@ public class GameActivity extends AppCompatActivity {
 
         progressBar = findViewById(R.id.progressBar);
         progressBar.setProgress(0);
-        progressBar.setMax(100); // เพิ่มการตั้งค่า max
+        progressBar.setMax(100);
 
-        setTimer("seer"); // เรียกใช้ setTimer
+        setTimer("seer");
 
 
     }
 
     // set timer
     protected void setTimer(String timeType) {
-        final int delay = 1000; // 1000ms หรือ 1 วินาที
-        final int[] counter = {0}; // ตัวแปรสำหรับการนับเวลา
-        final int maxTime; // เวลาเต็มตามเงื่อนไข (วินาที)
 
         // ตั้งค่า maxTime ตาม timeType
         if (timeType.equals("villager")) {
@@ -88,26 +88,51 @@ public class GameActivity extends AppCompatActivity {
             maxTime = 30; // 30 วินาที
         } else {
             Log.e("setTimer", "Unknown timeType: " + timeType);
-            return; // ถ้า timeType ไม่ถูกต้อง ออกจากฟังก์ชัน
+            return;
         }
+        elapsedTime = 0; // รีเซ็ตเวลาเริ่มต้น
+        startTimer();
 
-        handler.postDelayed(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        int progress = (int) (((double) counter[0] / maxTime) * 100);
-                        progressBar.setProgress(progress); // ตั้งค่า progressBar
+    }
 
-                        if (counter[0] >= maxTime) { // ถ้าครบเวลา
-                            handler.removeCallbacks(this); // หยุดการเรียก Runnable
-                        } else {
-                            counter[0]++; // เพิ่มเวลา
-                            handler.postDelayed(this, delay); // เรียกใหม่หลังจาก delay
-                        }
-                    }
-                },
-                delay
-        );
+    private void startTimer() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (isPaused) return;
+
+                int progress = (int) (((double) elapsedTime / maxTime) * 100);
+                progressBar.setProgress(progress);
+
+                if (elapsedTime >= maxTime) {
+                    handler.removeCallbacks(this);
+                } else {
+                    elapsedTime++;
+                    handler.postDelayed(this, 1000); // เรียกใหม่หลังจาก 1 วินาที
+                }
+            }
+        }, 1000);
+    }
+
+    private void pauseTimer() {
+        isPaused = true;
+    }
+
+    private void resumeTimer() {
+        isPaused = false;
+        startTimer();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        pauseTimer();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        resumeTimer();
     }
 
 }
