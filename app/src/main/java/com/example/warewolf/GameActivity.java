@@ -90,6 +90,7 @@ public class GameActivity extends AppCompatActivity {
             Log.e("setTimer", "Unknown timeType: " + timeType);
             return;
         }
+
         elapsedTime = 0; // รีเซ็ตเวลาเริ่มต้น
         startTimer();
 
