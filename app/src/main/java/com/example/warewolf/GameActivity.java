@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -32,6 +33,9 @@ public class GameActivity extends AppCompatActivity {
     private ArrayList<Player> playState; // List of players for reference
     private String time;
 
+    private List<ImageView> imageViewPersonIds;
+    private List<ImageView> imageViewCountIds;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,22 @@ public class GameActivity extends AppCompatActivity {
                 findViewById(R.id.p7), findViewById(R.id.p8), findViewById(R.id.p9)
         );
 
+        // Initialize ImageView for each player
+        imageViewPersonIds = new ArrayList<>();
+        imageViewPersonIds = Arrays.asList(
+                findViewById(R.id.imageViewP1), findViewById(R.id.imageViewP2),findViewById(R.id.imageViewP3),
+                findViewById(R.id.imageViewP4), findViewById(R.id.imageViewP5), findViewById(R.id.imageViewP6),
+                findViewById(R.id.imageViewP7), findViewById(R.id.imageViewP8), findViewById(R.id.imageViewP9)
+        );
+
+        // Add voting count for each player
+        imageViewCountIds = new ArrayList<>();
+        imageViewCountIds = Arrays.asList(
+                findViewById(R.id.imageViewCountP1), findViewById(R.id.imageViewCountP2),findViewById(R.id.imageViewCountP3),
+                findViewById(R.id.imageViewCountP4), findViewById(R.id.imageViewCountP5), findViewById(R.id.imageViewCountP6),
+                findViewById(R.id.imageViewCountP7), findViewById(R.id.imageViewCountP8), findViewById(R.id.imageViewCountP9)
+        );
+
         playState = getIntent().getParcelableArrayListExtra("playState");
         time = getIntent().getStringExtra("time");
 
@@ -59,13 +79,20 @@ public class GameActivity extends AppCompatActivity {
         //set name on page
         for (int i = 0; i < playState.size(); i++) {
             Player player = playState.get(i);
+
+            // Set the name to the TextView
             TextView playerTextView = findViewById(getResources().getIdentifier(
                     "textViewP" + (i + 1), "id", getPackageName())
             );
             playerTextView.setText(player.getName());
+
+            // Set the avatar to imageView
+            int imageResourceId = getResources().getIdentifier("user_" + (i+1), "drawable", getPackageName());
+            imageViewPersonIds.get(i).setImageResource(imageResourceId);
+
         }
 
-        if(time.equals("night")){
+        if(playState != null && time.equals("night")){
 
             // Set up skip button listener
             skipButton.setOnClickListener(v -> {

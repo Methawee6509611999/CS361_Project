@@ -54,11 +54,23 @@
                     android:gravity="center_horizontal|center_vertical"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageViewP1"
+                    <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="124dp"
-                        app:srcCompat="@drawable/default_img" />
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imageViewP1"
+                            android:layout_width="match_parent"
+                            android:layout_height="124dp"
+                            app:srcCompat="@drawable/default_img" />
+
+                        <ImageView
+                            android:id="@+id/imageViewCountP1"
+                            android:layout_width="match_parent"
+                            android:layout_height="124dp"
+                            android:scaleType="fitCenter" />
+
+                    </FrameLayout>
 
                     <TextView
                         android:id="@+id/textViewP1"
@@ -87,11 +99,22 @@
                     android:gravity="center_horizontal|center_vertical"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageViewP2"
-                        android:layout_width="match_parent"
-                        android:layout_height="124dp"
-                        app:srcCompat="@drawable/default_img" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imageViewP2"
+                            android:layout_width="match_parent"
+                            android:layout_height="124dp"
+                            app:srcCompat="@drawable/default_img" />
+
+                        <ImageView
+                            android:id="@+id/imageViewCountP2"
+                            android:layout_width="match_parent"
+                            android:layout_height="124dp"
+                            android:scaleType="fitCenter" />
+                    </FrameLayout>
 
                     <TextView
                         android:id="@+id/textViewP2"
@@ -120,11 +143,22 @@
                     android:gravity="center_horizontal|center_vertical"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageViewP3"
-                        android:layout_width="match_parent"
-                        android:layout_height="124dp"
-                        app:srcCompat="@drawable/default_img" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imageViewP3"
+                            android:layout_width="match_parent"
+                            android:layout_height="124dp"
+                            app:srcCompat="@drawable/default_img" />
+
+                        <ImageView
+                            android:id="@+id/imageViewCountP3"
+                            android:layout_width="match_parent"
+                            android:layout_height="124dp"
+                            android:scaleType="fitCenter" />
+                    </FrameLayout>
 
                     <TextView
                         android:id="@+id/textViewP3"
@@ -153,11 +187,22 @@
                     android:gravity="center_horizontal|center_vertical"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageViewP4"
-                        android:layout_width="match_parent"
-                        android:layout_height="124dp"
-                        app:srcCompat="@drawable/default_img" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imageViewP4"
+                            android:layout_width="match_parent"
+                            android:layout_height="124dp"
+                            app:srcCompat="@drawable/default_img" />
+
+                        <ImageView
+                            android:id="@+id/imageViewCountP4"
+                            android:layout_width="match_parent"
+                            android:layout_height="124dp"
+                            android:scaleType="fitCenter" />
+                    </FrameLayout>
 
                     <TextView
                         android:id="@+id/textViewP4"
@@ -186,11 +231,22 @@
                     android:gravity="center_horizontal|center_vertical"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageViewP5"
-                        android:layout_width="match_parent"
-                        android:layout_height="124dp"
-                        app:srcCompat="@drawable/default_img" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imageViewP5"
+                            android:layout_width="match_parent"
+                            android:layout_height="124dp"
+                            app:srcCompat="@drawable/default_img" />
+
+                        <ImageView
+                            android:id="@+id/imageViewCountP5"
+                            android:layout_width="match_parent"
+                            android:layout_height="124dp"
+                            android:scaleType="fitCenter" />
+                    </FrameLayout>
 
                     <TextView
                         android:id="@+id/textViewP5"
@@ -219,11 +275,22 @@
                     android:gravity="center_horizontal|center_vertical"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageViewP6"
-                        android:layout_width="match_parent"
-                        android:layout_height="124dp"
-                        app:srcCompat="@drawable/default_img" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imageViewP6"
+                            android:layout_width="match_parent"
+                            android:layout_height="124dp"
+                            app:srcCompat="@drawable/default_img" />
+
+                        <ImageView
+                            android:id="@+id/imageViewCountP6"
+                            android:layout_width="match_parent"
+                            android:layout_height="124dp"
+                            android:scaleType="fitCenter" />
+                    </FrameLayout>
 
                     <TextView
                         android:id="@+id/textViewP6"
@@ -252,11 +319,22 @@
                     android:gravity="center_horizontal|center_vertical"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageViewP7"
-                        android:layout_width="match_parent"
-                        android:layout_height="124dp"
-                        app:srcCompat="@drawable/default_img" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imageViewP7"
+                            android:layout_width="match_parent"
+                            android:layout_height="124dp"
+                            app:srcCompat="@drawable/default_img" />
+
+                        <ImageView
+                            android:id="@+id/imageViewCountP7"
+                            android:layout_width="match_parent"
+                            android:layout_height="124dp"
+                            android:scaleType="fitCenter" />
+                    </FrameLayout>
 
                     <TextView
                         android:id="@+id/textViewP7"
@@ -285,11 +363,22 @@
                     android:gravity="center_horizontal|center_vertical"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageViewP8"
-                        android:layout_width="match_parent"
-                        android:layout_height="124dp"
-                        app:srcCompat="@drawable/default_img" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imageViewP8"
+                            android:layout_width="match_parent"
+                            android:layout_height="124dp"
+                            app:srcCompat="@drawable/default_img" />
+
+                        <ImageView
+                            android:id="@+id/imageViewCountP8"
+                            android:layout_width="match_parent"
+                            android:layout_height="124dp"
+                            android:scaleType="fitCenter" />
+                    </FrameLayout>
 
                     <TextView
                         android:id="@+id/textViewP8"
@@ -318,11 +407,22 @@
                     android:gravity="center_horizontal|center_vertical"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageViewP9"
-                        android:layout_width="match_parent"
-                        android:layout_height="124dp"
-                        app:srcCompat="@drawable/default_img" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imageViewP9"
+                            android:layout_width="match_parent"
+                            android:layout_height="124dp"
+                            app:srcCompat="@drawable/default_img" />
+
+                        <ImageView
+                            android:id="@+id/imageViewCountP9"
+                            android:layout_width="match_parent"
+                            android:layout_height="124dp"
+                            android:scaleType="fitCenter" />
+                    </FrameLayout>
 
                     <TextView
                         android:id="@+id/textViewP9"
