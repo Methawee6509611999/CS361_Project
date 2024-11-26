@@ -64,6 +64,12 @@
             android:exported="true">
         </activity>
 
+        <activity
+            android:name=".Ending"
+            android:theme="@style/Theme.Warewolf"
+            android:exported="true">
+        </activity>
+
     </application>
 
 </manifest>
