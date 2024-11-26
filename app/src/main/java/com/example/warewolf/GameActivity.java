@@ -87,11 +87,16 @@ public class GameActivity extends AppCompatActivity {
             playerTextView.setText(player.getName());
 
             // Set the avatar to imageView
-            int imageResourceId = getResources().getIdentifier("user_" + (i+1), "drawable", getPackageName());
-            imageViewPersonIds.get(i).setImageResource(imageResourceId);
-
+            if(!playState.get(i).isAlive()){
+                imageViewPersonIds.get(i).setImageResource(R.drawable.default_img);
+            }
+            else {
+                int imageResourceId = getResources().getIdentifier("user_" + (i+1), "drawable", getPackageName());
+                imageViewPersonIds.get(i).setImageResource(imageResourceId);
+            }
         }
 
+        // Let's vote.
         if(playState != null && time.equals("night")){
 
             // Set up skip button listener
@@ -153,6 +158,12 @@ public class GameActivity extends AppCompatActivity {
                 cardView.setOnClickListener(v -> {
                     voted[index]++;
                     voteCount++;
+
+                    if(index>=1) {
+                        int imageClickCount = getResources().getIdentifier("number_" + (index), "drawable", getPackageName());
+                        imageViewCountIds.get(i).setImageResource(imageClickCount);
+                    }
+
 
                     Log.d("Voting", playState.get(index).getName() + " has been voted " + voted[index] + " times!");
 
