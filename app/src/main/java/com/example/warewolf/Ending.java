@@ -2,8 +2,10 @@ package com.example.warewolf;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,12 +38,15 @@ public class Ending extends AppCompatActivity {
         TextView winTeamTextView = findViewById(R.id.winTeam);
         TextView seerNameTextView = findViewById(R.id.seerName);
         TextView wolfNameTextView = findViewById(R.id.wolfName);
+        ImageView roleWinImageView = findViewById(R.id.roleWin);
 
         // Set text for winTeam TextView based on wolfWin value
         if (wolfWin) {
             winTeamTextView.setText(R.string.role_werewolf); // If wolfWin is true, display "Werewolf"
+            roleWinImageView.setImageResource(R.drawable.werewolf_img); // แสดงรูปหมาป่า
         } else {
             winTeamTextView.setText(R.string.role_villager); // If wolfWin is false, display "Villager"
+            roleWinImageView.setImageResource(R.drawable.villager_img); // แสดงรูปชาวบ้าน
         }
 
         // Display Seer name

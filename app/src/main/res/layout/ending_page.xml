@@ -5,23 +5,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:layout_gravity="center"
+    android:padding="16dp"
     android:background="?android:windowBackground">
 
+    <!-- ผู้ชนะ -->
     <TextView
         android:id="@+id/winner"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="125dp"
         android:layout_marginBottom="10dp"
         android:gravity="center"
         android:text="@string/winner"
         android:textColor="?android:textColorPrimary"
         android:textSize="@dimen/normal_size" />
 
+    <!-- ทีมที่ชนะ -->
     <TextView
         android:id="@+id/winTeam"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/role_villager"
@@ -29,26 +30,27 @@
         android:textSize="@dimen/super_large_size"
         android:textStyle="bold" />
 
+    <!-- รูปภาพของทีมที่ชนะ -->
     <ImageView
         android:id="@+id/roleWin"
         android:layout_width="285dp"
         android:layout_height="318dp"
-        android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         app:srcCompat="@drawable/villager_img" />
 
+    <!-- Seer Section -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center">
+        android:gravity="center">
 
         <TextView
             android:id="@+id/prefixSeer"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
             android:gravity="center"
             android:text="@string/seerIs"
             android:textColor="?android:textColorPrimary"
@@ -57,9 +59,8 @@
 
         <TextView
             android:id="@+id/seerName"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="center"
             android:text=""
             android:textColor="?android:textColorPrimary"
@@ -68,37 +69,47 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/prefixWolf"
+    <!-- Werewolf Section -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:gravity="center"
-        android:text="@string/wolfIs"
-        android:textColor="?android:textColorPrimary"
-        android:textSize="@dimen/normal_size"
-        android:textStyle="bold" />
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/wolfName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:text=""
-        android:textColor="?android:textColorPrimary"
-        android:textSize="@dimen/normal_size"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/prefixWolf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:text="@string/wolfIs"
+            android:textColor="?android:textColorPrimary"
+            android:textSize="@dimen/normal_size"
+            android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/wolfName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textColor="?android:textColorPrimary"
+            android:textSize="@dimen/normal_size"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- ปุ่มจบเกม -->
     <Button
         android:id="@+id/end_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
         android:background="?colorPrimary"
         android:padding="15dp"
         android:text="@string/end_btn"
         android:textColor="?colorOnPrimary"
         android:textSize="@dimen/normal_size"
         android:textStyle="bold" />
+
 </LinearLayout>
