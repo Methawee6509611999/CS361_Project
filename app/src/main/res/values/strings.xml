@@ -20,4 +20,6 @@
     <string name="seer_img">seer img</string>
     <string name="villager_img">villager img</string>
     <string name="skip">skip</string>
+    <string name="end_btn">Got it</string>
+    <string name="winner">The winner is</string>
 </resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/winner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="125dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="@string/winner"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="@dimen/normal_size" />
+
+    <TextView
+        android:id="@+id/teamWin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/role_villager"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="@dimen/normal_size"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/roleWin"
+        android:layout_width="285dp"
+        android:layout_height="318dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        app:srcCompat="@drawable/villager_img" />
+
+    <Button
+        android:id="@+id/end_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="?colorPrimary"
+        android:padding="15dp"
+        android:text="@string/end_btn"
+        android:textColor="?colorOnPrimary"
+        android:textSize="@dimen/normal_size"
+        android:textStyle="bold" />
+</LinearLayout>
