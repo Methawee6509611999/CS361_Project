@@ -5,5 +5,8 @@
     <color name="gray">#737272</color>
     <color name="white">#FAF9F6</color>
     <color name="brown">#564a41</color>
+    <color name="dark_blue">#0E102E</color>
+    <color name="blue">#232868</color>
+    <color name="yellow">#FFD500</color>
 
 </resources>

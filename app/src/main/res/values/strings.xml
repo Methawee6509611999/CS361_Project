@@ -4,7 +4,7 @@
     <string name="enter_player_num">Enter a number of players</string>
     <string name="showRole">Reveal the role upon death in the game.</string>
     <string name="noshowRole">Hide the role upon death in the game.</string>
-    <string name="startBotton">START</string>
+    <string name="startBotton">LET\'S PLAY!</string>
     <string name="role_villager">Villager</string>
     <string name="role_werewolf">Werewolf</string>
     <string name="role_seer">Seer</string>
