@@ -48,7 +48,20 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/normal_size"
             android:textColor="?android:textColorPrimary"
-            android:text="@string/role_villager" />
+            android:text="" />
+
+        <Button
+            android:id="@+id/NextButtondead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="?colorPrimary"
+            android:padding="15dp"
+            android:text="@string/next_btn"
+            android:textColor="?colorOnPrimary"
+            android:textSize="@dimen/normal_size"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>

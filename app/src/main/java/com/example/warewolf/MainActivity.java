@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view){
                 Intent intent = new Intent(MainActivity.this, SetupActivity.class);
                 intent.putExtra("playerAmount",playerCount.getText());
+                intent.putExtra("time","day");
                 startActivity(intent);
             }
         });

@@ -140,7 +140,7 @@ public class SetupActivity extends AppCompatActivity implements SensorEventListe
                 } else {
                     // All players set up, start the game
                     Intent intent = new Intent(SetupActivity.this, GameActivity.class);
-                    intent.putParcelableArrayListExtra("players", players);
+                    intent.putParcelableArrayListExtra("playState", players);
                     intent.putExtra("time","day");
                     startActivity(intent);
                 }

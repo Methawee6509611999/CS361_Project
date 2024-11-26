@@ -12,7 +12,9 @@
     <string name="players_name">Player name:</string>
     <string name="input_name">e.g. mighty</string>
     <string name="next_btn">next</string>
-    <string name="kill">Killed Player</string>
+    <string name="kill">A player was killed by werewolfs</string>
+    <string name="hang">A player was hanged</string>
+    <string name="safe">Nobody dies</string>
     <string name="default_img">default img</string>
     <string name="werewolf_img">werewolf img</string>
     <string name="seer_img">seer img</string>

@@ -32,6 +32,7 @@ public class GameActivity extends AppCompatActivity {
     private ArrayList<Player> playState; // List of players for reference
     private String time;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +49,7 @@ public class GameActivity extends AppCompatActivity {
                 findViewById(R.id.p7), findViewById(R.id.p8), findViewById(R.id.p9)
         );
 
-        playState = getIntent().getParcelableArrayListExtra("players");
+        playState = getIntent().getParcelableArrayListExtra("playState");
         time = getIntent().getStringExtra("time");
 
         // Initialize vote tracking
@@ -68,42 +69,31 @@ public class GameActivity extends AppCompatActivity {
 
             // Set up skip button listener
             skipButton.setOnClickListener(v -> {
-                skipped[0]++;
-                voteCount++;
-                skipButton.setText("skip(" + skipped[0] + ')');
-            });
-            if (skipped[0]>playState.size()){
                 Intent intent = new Intent(GameActivity.this, DeathActivity.class);
                 intent.putExtra("time","day");
                 intent.putExtra("votedName","none");
+                intent.putParcelableArrayListExtra("playState", playState);
                 startActivity(intent);
-            }
+            });
             // Set up click listeners for the cards
-            for (int i = 0; i < playState.size(); i++) {
+            for (int i = 0; i < playState.size() ; i++) {
                 int index = i; // Capture the current index
                 CardView cardView = cardViews.get(i);
 
+                if(!playState.get(index).isAlive()){
+                    continue;
+                }
                 cardView.setOnClickListener(v -> {
-                    voted[index]++;
-                    voteCount++;
 
                     Log.d("Voting", playState.get(index).getName() + " has been voted " + voted[index] + " times!");
+                    playState.get(index).Die();
+                    Intent intent = new Intent(GameActivity.this, DeathActivity.class);
+                    intent.putExtra("time","night");
+                    intent.putExtra("votedName",playState.get(index).getName());
+                    intent.putExtra("votedRole",playState.get(index).getRole());
+                    intent.putParcelableArrayListExtra("playState", playState);
+                    startActivity(intent);
 
-
-                    // Check if all players have voted
-                    if (hasEveryoneVoted()) {
-                        Player mostVotedPlayer = getMostVotedPlayer();
-                        if (mostVotedPlayer != null) {
-
-                            mostVotedPlayer.Die();
-                            Log.d("Result", "Most voted player is: " + mostVotedPlayer.getName());
-                        }
-                        Intent intent = new Intent(GameActivity.this, DeathActivity.class);
-                        intent.putExtra("time","day");
-                        intent.putExtra("votedName",mostVotedPlayer.getName());
-                        intent.putExtra("votedRole",mostVotedPlayer.getRole());
-                        startActivity(intent);
-                    }
                 });
             }
 
@@ -121,14 +111,18 @@ public class GameActivity extends AppCompatActivity {
                 Intent intent = new Intent(GameActivity.this, DeathActivity.class);
                 intent.putExtra("time","day");
                 intent.putExtra("votedName","none");
+                intent.putParcelableArrayListExtra("playState", playState);
                 startActivity(intent);
             }
 
             // Set up click listeners for the cards
-            for (int i = 0; i < playState.size(); i++) {
+            for (int i = 0; i < playState.size() ; i++) {
                 int index = i; // Capture the current index
                 CardView cardView = cardViews.get(i);
 
+                if(!playState.get(index).isAlive()){
+                    continue;
+                }
                 cardView.setOnClickListener(v -> {
                     voted[index]++;
                     voteCount++;
@@ -148,6 +142,7 @@ public class GameActivity extends AppCompatActivity {
                         intent.putExtra("time","day");
                         intent.putExtra("votedName",mostVotedPlayer.getName());
                         intent.putExtra("votedRole",mostVotedPlayer.getRole());
+                        intent.putParcelableArrayListExtra("playState", playState);
                         startActivity(intent);
                     }
                 });
@@ -156,11 +151,12 @@ public class GameActivity extends AppCompatActivity {
             Log.e("PlayState", "No players received from Intent!");
         }
 
+
         progressBar = findViewById(R.id.progressBar);
         progressBar.setProgress(0);
         progressBar.setMax(100);
 
-        setTimer("seer");
+        setTimer(time);
     }
 
     private boolean hasEveryoneVoted() {
