@@ -159,9 +159,41 @@ public class GameActivity extends AppCompatActivity {
                     voted[index]++;
                     voteCount++;
 
-                    if(index>=1) {
-                        int imageClickCount = getResources().getIdentifier("number_" + (index), "drawable", getPackageName());
-                        imageViewCountIds.get(i).setImageResource(imageClickCount);
+                    if(voted[index]>=1) {
+                        int imageClickCount = getResources().getIdentifier("number_" + (voted[index]), "drawable", getPackageName());
+                        switch (index) {
+                            case 0:
+                                imageViewCountIds.get(0).setImageResource(imageClickCount);
+                                break;
+                            case 1:
+                                imageViewCountIds.get(1).setImageResource(imageClickCount);
+                                break;
+                            case 2:
+                                imageViewCountIds.get(2).setImageResource(imageClickCount);
+                                break;
+                            case 3:
+                                imageViewCountIds.get(3).setImageResource(imageClickCount);
+                                break;
+                            case 4:
+                                imageViewCountIds.get(4).setImageResource(imageClickCount);
+                                break;
+                            case 5:
+                                imageViewCountIds.get(5).setImageResource(imageClickCount);
+                                break;
+                            case 6:
+                                imageViewCountIds.get(6).setImageResource(imageClickCount);
+                                break;
+                            case 7:
+                                imageViewCountIds.get(7).setImageResource(imageClickCount);
+                                break;
+                            case 8:
+                                imageViewCountIds.get(8).setImageResource(imageClickCount);
+                                break;
+                            default:
+                                // Default image for other indices
+                                break;
+                        }
+
                     }
 
 
