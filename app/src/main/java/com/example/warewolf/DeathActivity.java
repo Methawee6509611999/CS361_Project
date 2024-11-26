@@ -78,7 +78,6 @@ public class DeathActivity extends AppCompatActivity
                     }
                     intent.putExtra("wolfWin",true);
                     intent.putStringArrayListExtra("wolfNames",wolfName);
-                    intent.putParcelableArrayListExtra("playState",playState);
                     startActivity(intent);
                 } else if (wolfCount==0) {
                     String seerName = findSeer();
@@ -89,7 +88,6 @@ public class DeathActivity extends AppCompatActivity
 
                     intent.putExtra("wolfWin",false);
                     intent.putStringArrayListExtra("wolfNames",wolfName);
-                    intent.putParcelableArrayListExtra("playState",playState);
                     startActivity(intent);
                 }
 
