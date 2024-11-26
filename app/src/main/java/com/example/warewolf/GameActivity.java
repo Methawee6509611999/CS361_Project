@@ -33,6 +33,7 @@ public class GameActivity extends AppCompatActivity {
     private ArrayList<Player> playState; // List of players for reference
     private String time;
 
+
     private List<ImageView> imageViewPersonIds;
     private List<ImageView> imageViewCountIds;
 
@@ -230,7 +231,17 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private boolean hasEveryoneVoted() {
-        return voteCount == playState.size();
+        return voteCount == aliveCount();
+    }
+
+    private int aliveCount(){
+        int count = 0;
+        for(int i=0;i<playState.size();i++){
+            if(playState.get(i).isAlive()){
+                count++;
+            }
+        }
+        return count;
     }
 
     /**
