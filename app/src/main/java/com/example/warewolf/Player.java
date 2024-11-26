@@ -5,7 +5,7 @@ import android.os.Parcelable;
 public class Player implements Parcelable{
     private String name;
     private String role; // E.g., "Villager", "Werewolf", "Seer", etc.
-    private boolean isAlive;
+    private boolean isAlive = true;
 
     public Player(String name, String role) {
         this.name = name;

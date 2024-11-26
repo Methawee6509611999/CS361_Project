@@ -117,7 +117,7 @@ public class DeathActivity extends AppCompatActivity
 
     private void findwolf(){
         for(int i=0;i<playState.size();i++){
-            if(playState.get(i).getRole().equals("Werewolf")){
+            if( playState.get(i).getRole().equals("Werewolf") && playState.get(i).isAlive() ){
                 wolfName.add(playState.get(i).getName());
                 wolfCount++;
             }
