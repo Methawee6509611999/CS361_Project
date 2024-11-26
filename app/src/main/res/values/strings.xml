@@ -22,4 +22,6 @@
     <string name="skip">skip</string>
     <string name="end_btn">Got it</string>
     <string name="winner">The winner is</string>
+    <string name="seerIs">The Seer name were</string>
+    <string name="wolfIs">The werewolf name were</string>
 </resources>

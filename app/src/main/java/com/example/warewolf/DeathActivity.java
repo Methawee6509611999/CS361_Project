@@ -18,6 +18,8 @@ public class DeathActivity extends AppCompatActivity
     private ArrayList<Player> playState;
     private String role;
     ImageView deadManImg;
+    ArrayList<String> wolfName;
+    int wolfCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -33,6 +35,7 @@ public class DeathActivity extends AppCompatActivity
         TextView deadRole = findViewById(R.id.roleDead);
         deadManImg = findViewById(R.id.imageViewdead);
         Button next_btn = findViewById(R.id.NextButtondead);
+
 
         // Get the SharedPreferences instance
         SharedPreferences sharedPreferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
@@ -64,6 +67,32 @@ public class DeathActivity extends AppCompatActivity
         next_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+
+                //check Endgame wolfwin
+                findwolf();
+                if(wolfCount>=playState.size()){
+                    String seerName = findSeer();
+                    Intent intent = new Intent(DeathActivity.this, Ending.class);
+                    if (!seerName.equals("")){
+                        intent.putExtra("seerName",seerName);
+                    }
+                    intent.putExtra("wolfWin",true);
+                    intent.putStringArrayListExtra("wolfNames",wolfName);
+                    intent.putParcelableArrayListExtra("playState",playState);
+                    startActivity(intent);
+                } else if (wolfCount==0) {
+                    String seerName = findSeer();
+                    Intent intent = new Intent(DeathActivity.this, Ending.class);
+                    if (!seerName.equals("")){
+                        intent.putExtra("seerName",seerName);
+                    }
+
+                    intent.putExtra("wolfWin",false);
+                    intent.putStringArrayListExtra("wolfNames",wolfName);
+                    intent.putParcelableArrayListExtra("playState",playState);
+                    startActivity(intent);
+                }
+
                 Intent intent = new Intent(DeathActivity.this, GameActivity.class);
                 if(time.equals("day")){
                     intent.putExtra("time","night");
@@ -75,6 +104,27 @@ public class DeathActivity extends AppCompatActivity
             }
         });
     }
+
+    private String findSeer(){
+        String SeerName = "";
+        for(int i=0;i<playState.size();i++){
+            if(playState.get(i).getRole().equals("Seer")){
+                SeerName = (playState.get(i).getName());
+            }
+        }
+        return SeerName;
+    }
+
+    private void findwolf(){
+        for(int i=0;i<playState.size();i++){
+            if(playState.get(i).getRole().equals("Werewolf")){
+                wolfName.add(playState.get(i).getName());
+                wolfCount++;
+            }
+        }
+    }
+
+
 
     private void setImage(String role){
         switch (role){

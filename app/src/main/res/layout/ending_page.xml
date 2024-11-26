@@ -17,7 +17,7 @@
         android:textSize="@dimen/normal_size" />
 
     <TextView
-        android:id="@+id/teamWin"
+        android:id="@+id/winTeam"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -35,12 +35,62 @@
         android:layout_marginBottom="20dp"
         app:srcCompat="@drawable/villager_img" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/prefixSeer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/seerIs"
+            android:textColor="?android:textColorPrimary"
+            android:textSize="@dimen/normal_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/seerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text=""
+            android:textColor="?android:textColorPrimary"
+            android:textSize="@dimen/normal_size"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/prefixWolf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/wolfIs"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="@dimen/normal_size"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/wolfName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text=""
+        android:textColor="?android:textColorPrimary"
+        android:textSize="@dimen/normal_size"
+        android:textStyle="bold" />
+
     <Button
         android:id="@+id/end_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
         android:background="?colorPrimary"
         android:padding="15dp"
         android:text="@string/end_btn"
