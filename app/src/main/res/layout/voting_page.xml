@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:textColor="?colorOnPrimary"
             android:background="?colorPrimary"
+            android:textSize="@dimen/normal_size"
             android:text="@string/skip" />
 
         <ProgressBar
@@ -45,7 +46,7 @@
                 android:layout_column="0"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                app:cardBackgroundColor="#858585"
+                app:cardBackgroundColor="?colorSecondary"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
@@ -76,7 +77,10 @@
                     <TextView
                         android:id="@+id/textViewP1"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="?android:textColorPrimary"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -90,7 +94,7 @@
                 android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                app:cardBackgroundColor="#858585"
+                app:cardBackgroundColor="?colorSecondary"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
@@ -120,7 +124,10 @@
                     <TextView
                         android:id="@+id/textViewP2"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="?android:textColorPrimary"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -134,7 +141,7 @@
                 android:layout_column="2"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                app:cardBackgroundColor="#858585"
+                app:cardBackgroundColor="?colorSecondary"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
@@ -164,7 +171,10 @@
                     <TextView
                         android:id="@+id/textViewP3"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="?android:textColorPrimary"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -178,7 +188,7 @@
                 android:layout_column="0"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                app:cardBackgroundColor="#858585"
+                app:cardBackgroundColor="?colorSecondary"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
@@ -208,7 +218,10 @@
                     <TextView
                         android:id="@+id/textViewP4"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="?android:textColorPrimary"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -222,7 +235,7 @@
                 android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                app:cardBackgroundColor="#858585"
+                app:cardBackgroundColor="?colorSecondary"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
@@ -252,7 +265,10 @@
                     <TextView
                         android:id="@+id/textViewP5"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="?android:textColorPrimary"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -266,7 +282,7 @@
                 android:layout_column="2"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                app:cardBackgroundColor="#858585"
+                app:cardBackgroundColor="?colorSecondary"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
@@ -296,7 +312,10 @@
                     <TextView
                         android:id="@+id/textViewP6"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="?android:textColorPrimary"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -310,7 +329,7 @@
                 android:layout_column="0"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                app:cardBackgroundColor="#858585"
+                app:cardBackgroundColor="?colorSecondary"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
@@ -340,7 +359,10 @@
                     <TextView
                         android:id="@+id/textViewP7"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="?android:textColorPrimary"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -354,7 +376,7 @@
                 android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                app:cardBackgroundColor="#858585"
+                app:cardBackgroundColor="?colorSecondary"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
@@ -384,7 +406,10 @@
                     <TextView
                         android:id="@+id/textViewP8"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="?android:textColorPrimary"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -398,7 +423,7 @@
                 android:layout_column="2"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                app:cardBackgroundColor="#858585"
+                app:cardBackgroundColor="?colorSecondary"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
@@ -428,7 +453,11 @@
                     <TextView
                         android:id="@+id/textViewP9"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/normal_size"
+                        android:textStyle="bold"
+                        android:textColor="?android:textColorPrimary"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>

@@ -19,7 +19,7 @@
     <string name="werewolf_img">werewolf img</string>
     <string name="seer_img">seer img</string>
     <string name="villager_img">villager img</string>
-    <string name="skip">skip</string>
+    <string name="skip"><u>skip</u></string>
     <string name="end_btn">Got it</string>
     <string name="winner">The winner is</string>
     <string name="seerIs">The Seer name were</string>
