@@ -2,7 +2,6 @@ package com.example.warewolf;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,25 +27,35 @@ public class Ending extends AppCompatActivity {
             }
         });
 
+        // Get data passed via Intent
         String seerName = getIntent().getStringExtra("seerName");
         boolean wolfWin = getIntent().getBooleanExtra("wolfWin", false);
         ArrayList<String> wolfName = getIntent().getStringArrayListExtra("wolfName");
 
-        // หา TextView โดยใช้ ID
+        // Find TextViews by ID
         TextView winTeamTextView = findViewById(R.id.winTeam);
         TextView seerNameTextView = findViewById(R.id.seerName);
         TextView wolfNameTextView = findViewById(R.id.wolfName);
 
-        // ตั้งค่าข้อความของ winTeam TextView ตามค่าของ wolfWin
+        // Set text for winTeam TextView based on wolfWin value
         if (wolfWin) {
-            winTeamTextView.setText(R.string.role_werewolf); // หาก wolfWin เป็น true จะใช้ข้อความ "Werewolf"
+            winTeamTextView.setText(R.string.role_werewolf); // If wolfWin is true, display "Werewolf"
         } else {
-            winTeamTextView.setText(R.string.role_villager); // หาก wolfWin เป็น false จะใช้ข้อความ "Villager"
+            winTeamTextView.setText(R.string.role_villager); // If wolfWin is false, display "Villager"
         }
 
-        seerNameTextView.setText(seerName);
+        // Display Seer name
+        if (seerName != null && !seerName.isEmpty()) {
+            seerNameTextView.setText(seerName);
+        } else {
+            seerNameTextView.setText("Unknown Seer");
+        }
 
-        wolfNameTextView.setText(String.join(", ", wolfName));
-
+        // Display wolf names (if any)
+        if (wolfName != null && !wolfName.isEmpty()) {
+            wolfNameTextView.setText(String.join(", ", wolfName));
+        } else {
+            wolfNameTextView.setText("No Wolves");
+        }
     }
 }
