@@ -2,10 +2,10 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Warewolf" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:textColorPrimary">@color/black</item>
-        <item name="android:textColorSecondary">@color/brown</item>
+        <item name="android:textColorSecondary">@color/dark_blue</item>
         <item name="android:textColorHint">@color/gray</item>
-        <item name="colorPrimary">@color/brown</item>
-        <item name="colorOnPrimary">@color/super_white</item>
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorOnPrimary">@color/white</item>
         <item name="android:windowBackground">@color/white</item>
         <item name="colorControlActivated">@color/black</item>
 

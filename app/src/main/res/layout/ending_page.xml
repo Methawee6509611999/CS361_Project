@@ -3,7 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:background="?android:windowBackground">
 
     <TextView
         android:id="@+id/winner"
@@ -23,7 +26,7 @@
         android:gravity="center"
         android:text="@string/role_villager"
         android:textColor="?android:textColorPrimary"
-        android:textSize="@dimen/normal_size"
+        android:textSize="@dimen/super_large_size"
         android:textStyle="bold" />
 
     <ImageView
@@ -36,9 +39,10 @@
         app:srcCompat="@drawable/villager_img" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_gravity="center">
 
         <TextView
             android:id="@+id/prefixSeer"

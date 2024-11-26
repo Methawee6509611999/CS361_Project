@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center_horizontal">
+    android:gravity="center"
+    android:background="?android:windowBackground">
 
     <TextView
         android:id="@+id/kill"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="125dp"
         android:layout_marginBottom="10dp"
         android:textSize="@dimen/normal_size"
         android:textColor="?android:textColorPrimary"
@@ -23,9 +23,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="@dimen/normal_size"
+        android:text="@string/input_name"
+        android:textStyle="bold"
+        android:textSize="@dimen/super_large_size"
         android:textColor="?android:textColorPrimary"
-        android:text="@string/input_name" />
+         />
 
     <ImageView
         android:id="@+id/imageViewdead"
