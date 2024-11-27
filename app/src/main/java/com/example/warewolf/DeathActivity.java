@@ -107,7 +107,7 @@ public class DeathActivity extends AppCompatActivity {
 
         Intent intent = new Intent(DeathActivity.this, Ending.class);
         intent.putExtra("wolfWin", wolfCount > 0);
-        intent.putStringArrayListExtra("wolfNames", wolfNames);
+        intent.putParcelableArrayListExtra("playState",playState);
 
         String seerName = findSeer();
         if (!seerName.isEmpty()) {
