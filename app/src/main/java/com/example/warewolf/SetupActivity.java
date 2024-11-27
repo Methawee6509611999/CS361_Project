@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,6 +32,7 @@ public class SetupActivity extends AppCompatActivity implements SensorEventListe
 
     private boolean isFacingDown = false;
     private boolean isFacingUp = false;
+    private Button nextButton;
 
     private Vibrator vibrator;
 
@@ -47,7 +49,7 @@ public class SetupActivity extends AppCompatActivity implements SensorEventListe
         final int maxPlayers = getIntent().getIntExtra("playerAmount", 5);
 
         // UI Elements
-        Button nextButton = findViewById(R.id.next_btn);
+        nextButton = findViewById(R.id.next_btn);
         inputName = findViewById(R.id.input_name);
         roleText = findViewById(R.id.role);
         playerRoleImage = findViewById(R.id.playerRole);
@@ -67,6 +69,10 @@ public class SetupActivity extends AppCompatActivity implements SensorEventListe
         nextButton.setOnClickListener(v -> {
             // Change image to question mark
             playerRoleImage.setImageResource(R.drawable.questionmark_img);
+
+            // Hide the next button
+            nextButton.setVisibility(View.GONE); // Hides the button completely
+
             roleText.setText("?");
             // Start listening for orientation changes
             isFacingDown = false; // Reset states
@@ -122,6 +128,8 @@ public class SetupActivity extends AppCompatActivity implements SensorEventListe
 
         if (z > 9 && isFacingDown && !isFacingUp) { // Phone facing up
             isFacingUp = true;
+            // Visible the next button
+            nextButton.setVisibility(View.VISIBLE);
 
             // Stop listening to the sensor
             sensorManager.unregisterListener(this);
