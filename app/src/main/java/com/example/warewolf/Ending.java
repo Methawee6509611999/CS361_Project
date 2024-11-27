@@ -32,7 +32,14 @@ public class Ending extends AppCompatActivity {
         // Get data passed via Intent
         String seerName = getIntent().getStringExtra("seerName");
         boolean wolfWin = getIntent().getBooleanExtra("wolfWin", false);
-        ArrayList<String> wolfName = getIntent().getStringArrayListExtra("wolfName");
+        ArrayList<Player> playState = getIntent().getParcelableArrayListExtra("playState");
+        ArrayList<String> wolfName =new ArrayList<String>();
+
+        for (Player player:playState) {
+            if(player.getRole().equals("Werewolf")){
+                wolfName.add(player.getName());
+            }
+        }
 
         // Find TextViews by ID
         TextView winTeamTextView = findViewById(R.id.winTeam);
