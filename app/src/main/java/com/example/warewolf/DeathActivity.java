@@ -56,7 +56,7 @@ public class DeathActivity extends AppCompatActivity {
         TextView deadMan = findViewById(R.id.deathName);
         TextView deadRole = findViewById(R.id.roleDead);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
         boolean isRevealChecked = sharedPreferences.getBoolean("reveal_checked", false);
 
         if ("none".equals(deadManName)) {
@@ -123,7 +123,7 @@ public class DeathActivity extends AppCompatActivity {
 
         String time = getIntent().getStringExtra("time");
 
-        if(time.equals("night")){
+        if(time.equals("night")||time.equals("seer")){
             intent = new Intent(DeathActivity.this, DayCount.class);
         } else if (time.equals("day")) {
             intent = new Intent(DeathActivity.this, NightCount.class);

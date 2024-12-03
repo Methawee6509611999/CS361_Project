@@ -307,6 +307,7 @@ public class GameActivity extends AppCompatActivity {
 
                 if (elapsedTime >= maxTime) {
                     handler.removeCallbacks(this);
+                    handleTimerExpiration();
                 } else {
                     elapsedTime++;
                     handler.postDelayed(this, 1000); // เรียกใหม่หลังจาก 1 วินาที
@@ -335,5 +336,28 @@ public class GameActivity extends AppCompatActivity {
         super.onResume();
         resumeTimer();
     }
+
+    private void handleTimerExpiration() {
+        Log.d("Timer", "Timer expired. Completing votes...");
+
+        // Force all votes to complete
+        int haventVote = aliveCount()-voteCount;
+        voteCount = aliveCount(); // Assume all alive players have cast their votes
+        skipped[0] +=haventVote;
+        Player mostVotedPlayer = getMostVotedPlayer();
+
+        Intent intent = new Intent(GameActivity.this, DeathActivity.class);
+        intent.putExtra("time", time); // Pass the current time type (day/night)
+        if (mostVotedPlayer != null) {
+            mostVotedPlayer.Die();
+            intent.putExtra("votedName", mostVotedPlayer.getName());
+            intent.putExtra("votedRole", mostVotedPlayer.getRole());
+        } else {
+            intent.putExtra("votedName", "none"); // No votes if no majority
+        }
+        intent.putParcelableArrayListExtra("playState", playState);
+        startActivity(intent);
+    }
+
 
 }
