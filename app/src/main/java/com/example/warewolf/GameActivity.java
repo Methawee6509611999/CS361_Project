@@ -218,6 +218,16 @@ public class GameActivity extends AppCompatActivity {
                     }
                 });
             }
+        } else if (time.equals("seer")) {
+            //set wolf image
+            for (int i = 0; i < playState.size(); i++) {
+                Player player = playState.get(i);
+
+                // Set the avatar to imageView
+                if(player.getRole().equals("Werewolf")){
+                    imageViewPersonIds.get(i).setImageResource(R.drawable.werewolf_img);
+                }
+            }
         } else {
             Log.e("PlayState", "No players received from Intent!");
         }
@@ -275,7 +285,7 @@ public class GameActivity extends AppCompatActivity {
         } else if (timeType.equals("night")) {
             maxTime = 1 * 60; // 1 นาที
         } else if (timeType.equals("seer")) {
-            maxTime = 30; // 30 วินาที
+            maxTime = 10; // 10 วินาที
         } else {
             Log.e("setTimer", "Unknown timeType: " + timeType);
             return;

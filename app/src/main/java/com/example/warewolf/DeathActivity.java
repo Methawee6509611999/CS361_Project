@@ -21,6 +21,7 @@ public class DeathActivity extends AppCompatActivity {
     private ArrayList<String> wolfNames = new ArrayList<>();
     private int wolfCount = 0;
     private int aliveCount = 0;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,7 +123,12 @@ public class DeathActivity extends AppCompatActivity {
 
         String time = getIntent().getStringExtra("time");
 
-        Intent intent = new Intent(DeathActivity.this, GameActivity.class);
+        if(time.equals("night")){
+            intent = new Intent(DeathActivity.this, DayCount.class);
+        } else if (time.equals("day")) {
+            intent = new Intent(DeathActivity.this, NightCount.class);
+        }
+
         intent.putExtra("time", time.equals("day") ? "night" : "day");
         intent.putParcelableArrayListExtra("playState", playState);
 

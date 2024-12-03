@@ -139,7 +139,7 @@ public class SetupActivity extends AppCompatActivity implements SensorEventListe
                     inputName.setText(""); // Clear input for the next player
                 } else {
                     // All players set up, start the game
-                    Intent intent = new Intent(SetupActivity.this, GameActivity.class);
+                    Intent intent = new Intent(SetupActivity.this, SeerCount.class);
                     intent.putParcelableArrayListExtra("playState", players);
                     intent.putExtra("time","day");
                     startActivity(intent);
