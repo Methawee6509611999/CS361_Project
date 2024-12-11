@@ -66,11 +66,29 @@ public class DeathActivity extends AppCompatActivity {
             deadMan.setText(deadManName);
 
             if (isRevealChecked) {
-                setImage(role);
+                setImage(role);  // Show the role image
                 deadRole.setText(role);
+            } else {
+                // If reveal is not checked, show the player's image
+                int playerIndex = getPlayerIndexByName(deadManName);
+                if (playerIndex != -1) {
+                    String playerImageName = "user_" + (playerIndex + 1); // Assuming the image naming follows "user_1", "user_2", etc.
+                    int imageResourceId = getResources().getIdentifier(playerImageName, "drawable", getPackageName());
+                    deadManImg.setImageResource(imageResourceId);
+                }
             }
         }
     }
+
+    private int getPlayerIndexByName(String name) {
+        for (int i = 0; i < playState.size(); i++) {
+            if (playState.get(i).getName().equals(name)) {
+                return i; // Return the index of the player
+            }
+        }
+        return -1; // Return -1 if player not found
+    }
+
 
     private void countPlayers() {
         for (Player player : playState) {
