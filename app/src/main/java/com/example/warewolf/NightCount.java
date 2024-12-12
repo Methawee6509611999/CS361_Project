@@ -1,8 +1,10 @@
 package com.example.warewolf;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Vibrator;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -35,6 +37,12 @@ public class NightCount extends AppCompatActivity {
 
         GifView gifView = findViewById(R.id.moonlightGif);
         gifView.setGifResource(R.raw.moon_light); // ใช้ไฟล์ GIF จาก res/raw
+
+        // ใช้ Vibrator เพื่อสั่น
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        if (vibrator != null && vibrator.hasVibrator()) {
+            vibrator.vibrate(500); // สั่นเป็นเวลา 500 มิลลิวินาที
+        }
 
         // ตั้งเวลา animation
         new Handler().postDelayed(() -> {
