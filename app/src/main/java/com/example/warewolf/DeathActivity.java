@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.os.Vibrator;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -69,7 +70,17 @@ public class DeathActivity extends AppCompatActivity {
 
             if (isRevealChecked) {
                 setImage(role);  // Show the role image
-                deadRole.setText(role);
+                switch (role) {
+                    case "Werewolf":
+                        deadRole.setText(R.string.role_werewolf);
+                        break;
+                    case "Seer":
+                        deadRole.setText(R.string.role_seer);
+                        break;
+                    case "Villager":
+                        deadRole.setText(R.string.role_villager);
+                        break;
+                }
             } else {
                 // If reveal is not checked, show the player's image
                 int playerIndex = getPlayerIndexByName(deadManName);
@@ -189,5 +200,20 @@ public class DeathActivity extends AppCompatActivity {
                 imageResource = R.drawable.default_img; // Default fallback image
         }
         deadManImg.setImageResource(imageResource);
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.exit)
+                .setMessage(R.string.confirm_exit)
+                .setPositiveButton(R.string.yes, (dialog, which) -> {
+                    super.onBackPressed();
+                })
+                .setNegativeButton(R.string.no, (dialog, which) -> {
+                    dialog.dismiss();
+                })
+                .create()
+                .show();
     }
 }

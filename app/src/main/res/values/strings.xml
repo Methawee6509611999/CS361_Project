@@ -24,4 +24,8 @@
     <string name="winner">The winner is</string>
     <string name="seerIs">The Seer name were</string>
     <string name="wolfIs">The werewolf name were</string>
+    <string name="exit">Confirm exit</string>
+    <string name="confirm_exit">Are you sure you want to exit this screen?</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
 </resources>

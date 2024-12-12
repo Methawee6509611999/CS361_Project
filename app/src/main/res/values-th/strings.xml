@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WEREWOLF</string>
+    <string name="player_num">จำนวนผู้เล่น</string>
+    <string name="enter_player_num">ใส่จำนวนผู้เล่น</string>
+    <string name="showRole">เปิดเผยบทบาทเมื่อตาย</string>
+    <string name="noshowRole">ซ่อนบทบาทเมื่อตาย</string>
+    <string name="startBotton">เริ่มเกม</string>
+    <string name="role_villager">ชาวบ้าน</string>
+    <string name="role_werewolf">หมาป่า</string>
+    <string name="role_seer">ผู้หยั่งรู้</string>
+    <string name="role">บทบาทของคุณคือ:</string>
+    <string name="players_name">ชื่อผู้เล่น:</string>
+    <string name="input_name">ดีเยี่ยม!</string>
+    <string name="next_btn">ต่อไป</string>
+    <string name="kill">ผู้เล่นที่ถูกฆ่าโดยหมาป่า</string>
+    <string name="hang">ผู้เล่นที่ถูกโหวตฆ่า</string>
+    <string name="safe">ไม่มีใครตาย</string>
+    <string name="default_img">รูปเริ่มต้น</string>
+    <string name="werewolf_img">รูปหมาป่า</string>
+    <string name="seer_img">รูปผู้หยั่งรู้</string>
+    <string name="villager_img">รูปชาวบ้าน</string>
+    <string name="skip">ข้าม</string>
+    <string name="end_btn">รับทราบ</string>
+    <string name="winner">ผู้ชนะคือ</string>
+    <string name="seerIs">ผู้หยั่งรู้คือ</string>
+    <string name="wolfIs">หมาป่าคือ</string>
+    <string name="exit">ยืนยันการออก</string>
+    <string name="confirm_exit">คุณแน่ใจหรือไม่ว่าต้องการออกจากหน้าจอนี้?</string>
+    <string name="yes">ใช่</string>
+    <string name="no">ไม่</string>
+</resources>

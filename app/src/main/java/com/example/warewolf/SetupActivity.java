@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -106,13 +107,16 @@ public class SetupActivity extends AppCompatActivity implements SensorEventListe
         // Set role-specific image
         switch (role) {
             case "Werewolf":
-                playerRoleImage.setImageResource(R.drawable.werewolf_img); // Replace with your actual drawable
+                playerRoleImage.setImageResource(R.drawable.werewolf_img);// Replace with your actual drawable
+                roleText.setText(R.string.role_werewolf);
                 break;
             case "Seer":
                 playerRoleImage.setImageResource(R.drawable.seer_img); // Replace with your actual drawable
+                roleText.setText(R.string.role_seer);
                 break;
             case "Villager":
                 playerRoleImage.setImageResource(R.drawable.villager_img); // Replace with your actual drawable
+                roleText.setText(R.string.role_villager);
                 break;
         }
     }
@@ -164,5 +168,20 @@ public class SetupActivity extends AppCompatActivity implements SensorEventListe
     protected void onDestroy() {
         super.onDestroy();
         sensorManager.unregisterListener(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.exit)
+                .setMessage(R.string.confirm_exit)
+                .setPositiveButton(R.string.yes, (dialog, which) -> {
+                    super.onBackPressed();
+                })
+                .setNegativeButton(R.string.no, (dialog, which) -> {
+                    dialog.dismiss();
+                })
+                .create()
+                .show();
     }
 }

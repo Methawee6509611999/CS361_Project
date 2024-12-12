@@ -62,4 +62,5 @@ public class GifView extends View {
             invalidate();
         }
     }
+
 }
