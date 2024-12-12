@@ -1,5 +1,6 @@
 package com.example.warewolf;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.os.Vibrator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -77,6 +79,15 @@ public class DeathActivity extends AppCompatActivity {
                     deadManImg.setImageResource(imageResourceId);
                 }
             }
+            // เพิ่มการสั่นเมื่อมีการประกาศคนตาย
+            vibrateOnDeath();
+        }
+    }
+
+    private void vibrateOnDeath() {
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        if (vibrator != null && vibrator.hasVibrator()) {
+            vibrator.vibrate(500); // สั่นเป็นเวลา 500 มิลลิวินาที
         }
     }
 
